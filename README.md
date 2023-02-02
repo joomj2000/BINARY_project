@@ -51,6 +51,15 @@ cv를 이용한 자율 좌석 서비스
 
 
 
+#### 📙 cv
+
++ Python
+
+
++ OpenCV
+
+
+
 #### 📙 백엔드
 
 + Spring Boot
