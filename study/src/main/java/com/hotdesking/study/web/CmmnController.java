@@ -15,4 +15,13 @@ public class CmmnController {
     public String join(){
         return "join";
     }
+
+    @GetMapping("/confirmation")
+    public String confirmation() {return "confirmation";}
+
+    @GetMapping("/find")
+    public String find() {return "find";}
+
+    @GetMapping("/login")
+    public String login(){return "index1";}
 }

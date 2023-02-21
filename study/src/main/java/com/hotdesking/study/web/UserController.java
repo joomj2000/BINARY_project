@@ -1,6 +1,6 @@
 package com.hotdesking.study.web;
 
-import com.hotdesking.study.domain.UserRequest;
+import com.hotdesking.study.domain.*;
 import com.hotdesking.study.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,33 +8,69 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Slf4j
-@RestController
+@Controller//@RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
+    private String tableId;
+    private User user;
     @PostMapping("/signup")
     public String joinUs(UserRequest request){
         log.info("userId={}, password={}, userName={}",
                 request.getUserId(), request.getPassword(), request.getUserName());
-        userService.joinUser(request);
+        //userService.joinUser(request);
         if(userService.joinUser(request).equals("Success")) {
-            return "index";
+            return "redirect:/home";
         }
+
         //return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        return "index";
+        return "Fail";
     }
 
+    @PostMapping("/choose")
+    public String choose(TableRequest tableRequest){
+        log.info("tableId = {}", tableRequest.getTableId());
+        tableId = tableRequest.getTableId();
+        return "redirect:/home";
+    }
     @PostMapping("/login")
-    public String login(@RequestBody UserRequest request){
+    public String login(UserLogin request){
         log.info("userId = {}, password = {}", request.getUserId(), request.getPassword());
-        userService.login(request.getUserId(), request.getPassword());
-        return "index";
+        log.info("tableId = {}", tableId);
+        if(userService.login(request, tableId).equals("Success")) {
+            return "redirect:/home";
+        }
+        return "Fail";
+    }
+
+//    @GetMapping("/find")
+//    public void findGET(HttpSession session, Model model) throws Exception{
+//        // 세션 객체 안에 있는 ID정보 저장
+//        String name = (String) session.getAttribute("userName");
+//        log.info("C: 회원정보보기 GET의 이름" + name);
+//
+//        // 서비스 안의 회원정보보기 메서드 호출
+//
+//    }
+    @PostMapping("/find")
+    public String find(UserFind request){
+        log.info("userName = {}", request.getUserName());
+        user = userService.findUser(request);
+        return "redirect:/user/findInfo";
+    }
+    @GetMapping("/findInfo")
+    public String find(Model model){
+        model.addAttribute("user", user);
+        return "userInfo";
     }
 }
