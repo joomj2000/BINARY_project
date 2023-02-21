@@ -34,7 +34,7 @@
 <body>
      <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
-        <a href="index.html" class="navbar-brand ms-lg-5">
+        <a href="home" class="navbar-brand ms-lg-5">
             <h1 class="display-5 m-0 text-primary">Hot<span class="text-secondary">Desking</span></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -42,9 +42,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link">attendance</a>
-                <a href="confirmation.html" class="nav-item nav-link">confirmation</a>
-                <a href="find.html" class="nav-item nav-link active">find</a>
+                <a href="home" class="nav-item nav-link">attendance</a>
+                <a href="confirmation" class="nav-item nav-link">confirmation</a>
+                <a href="find" class="nav-item nav-link active">find</a>
                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
@@ -74,12 +74,16 @@
         <div class="container pt-5">
             
                 <div class="col-12">
-                    <form class="mx-auto" style="max-width: 600px;">
+                    <div class="mx-auto" style="max-width: 600px;">
                         <div class="input-group">
-                            <input type="text" class="form-control border-blue p-3" placeholder="이름을 입력하세요">
-                            <button class="btn btn-primary px-4">find</button>
+
+                            <form id="findUser" method="post" action="/user/find">
+                                <input id="userName" name="userName" type="text" class="form-control border-blue p-3" placeholder="이름을 입력하세요">
+                                <input type="submit" class="btn btn-primary px-4" value="find">
+                            </form>
+
                         </div>
-                    </form>
+                    </div>
                 </div>
         </div>
     </div>
