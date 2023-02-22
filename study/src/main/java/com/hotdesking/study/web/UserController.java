@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,14 +18,14 @@ import java.util.Optional;
 
 @Slf4j
 @Controller//@RestController
-@RequestMapping("/user")
 @RequiredArgsConstructor
+//@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
     private String tableId;
     private User user;
-    @PostMapping("/signup")
+    @PostMapping("/user/signup")
     public String joinUs(UserRequest request){
         log.info("userId={}, password={}, userName={}",
                 request.getUserId(), request.getPassword(), request.getUserName());
@@ -37,13 +38,13 @@ public class UserController {
         return "Fail";
     }
 
-    @PostMapping("/choose")
+    @PostMapping("/user/choose")
     public String choose(TableRequest tableRequest){
         log.info("tableId = {}", tableRequest.getTableId());
         tableId = tableRequest.getTableId();
         return "redirect:/home";
     }
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public String login(UserLogin request){
         log.info("userId = {}, password = {}", request.getUserId(), request.getPassword());
         log.info("tableId = {}", tableId);
@@ -62,15 +63,25 @@ public class UserController {
 //        // 서비스 안의 회원정보보기 메서드 호출
 //
 //    }
-    @PostMapping("/find")
+    @PostMapping("/user/find")
     public String find(UserFind request){
         log.info("userName = {}", request.getUserName());
         user = userService.findUser(request);
-        return "redirect:/user/findInfo";
+
+        return "redirect:/findInfo";
     }
+
+//    @GetMapping("/findInfo")
+//    public RedirectView addFindUser(Model model){
+//        model.addAttribute("user", user);
+//        return new RedirectView("/userInfo");
+//    }
     @GetMapping("/findInfo")
-    public String find(Model model){
+    public String addFindUser(Model model){
         model.addAttribute("user", user);
         return "userInfo";
     }
+
+//    @GetMapping("/userInfo")
+//    public String userInfo(){return "userInfo";}
 }

@@ -1,5 +1,6 @@
 package com.hotdesking.study.web;
 
+import com.hotdesking.study.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,4 +25,6 @@ public class CmmnController {
 
     @GetMapping("/login")
     public String login(){return "index1";}
+
+
 }

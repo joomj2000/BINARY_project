@@ -41,10 +41,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link">attendance</a>
-                <a href="join.html" class="nav-item nav-link active">sign in</a>
-                <a href="confirmation.html" class="nav-item nav-link">confirmation</a>
-                <a href="find.html" class="nav-item nav-link">find</a>
+                <a href="home" class="nav-item nav-link">attendance</a>
+                <a href="join" class="nav-item nav-link active">sign in</a>
+                <a href="confirmation" class="nav-item nav-link">confirmation</a>
+                <a href="find" class="nav-item nav-link">find</a>
             </div>
         </div>
     </nav>
@@ -54,33 +54,48 @@
         <div class="container pt-5">
             
                 <div class="col-12">
-                    <form class="mx-auto" style="max-width: 600px;">
+                    <form method="post" class="mx-auto" style="max-width: 600px;">
                         <div class="input-group">
                             <h2 style="color:#F14D5D;">ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </span></h2>
-                            <input type="text" class="form-control border-blue p-3" placeholder="아이디을 입력하세요">
+                            <input id="userId" name="userId" type="text" class="form-control border-blue p-3" placeholder="아이디을 입력하세요">
                             
                         </div>
 
                         <div class="input-group">
                         	<h2><span class="text-secondary">PASSWORD &nbsp</span></h2>
-                            <input type="text" class="form-control border-blue p-3" placeholder="비밀번호를 입력하세요">
+                            <input id="password" name="password" type="text" class="form-control border-blue p-3" placeholder="비밀번호를 입력하세요">
                             
                         </div>
                         
 
                         <div class="input-group">
                         	<h2 style="color:#2878EB;">NAME&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
-                            <input type="text" class="form-control border-blue p-3" placeholder="이름을 입력하세요">
+                            <input id="userName" name="userName" type="text" class="form-control border-blue p-3" placeholder="이름을 입력하세요">
                             
                         </div>
+                        <button type="button" onclick="submitTest(this.form)" style="padding: 10px 60px;"class="btn btn-primary px-6">sign in</button>
                     </form>
+                    <script type="text/javascript">
+                        var doubleSubmitFlag = false;
+                        function submitTest(form){
+                            if(doubleSubmitFlag){
+                                alert('넘기기중');
+                                return false;
+                             }
+                            else{
+                                doubleSubmitFlag=true;
+                                form.action="/user/signup";
+                                form.submit();
+                            }
+                        }
+                    </script>
                 </div>
                 <h1>&nbsp</h1>
                          
         </div>
     </div>
 
-    <center><button style="padding: 10px 60px;"class="btn btn-primary px-6">sign in</button></center>
+    <!--<center><button style="padding: 10px 60px;"class="btn btn-primary px-6">sign in</button></center>-->
 
 
 </body>
