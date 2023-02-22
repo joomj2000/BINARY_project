@@ -18,9 +18,5 @@ public class TableService {
     @Autowired
     private final TableRepository tableRepository;
 
-    public String login(TableRequest table){
 
-
-        return "Success";
-    }
 }

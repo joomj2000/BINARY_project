@@ -6,6 +6,8 @@ import com.hotdesking.study.service.TableService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class TableController {
     private final TableService tableService;
 
-    @PostMapping("/choose")
-    public String login(TableRequest table){
-        log.info("tableId={}", table.getTableId());
+    @GetMapping("/confirmation")
+    public String showDesk(Model model){
 
-        return "Success";
+
+        return "confirmation";
     }
 }

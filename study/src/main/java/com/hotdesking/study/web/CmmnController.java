@@ -24,7 +24,7 @@ public class CmmnController {
     public String find() {return "find";}
 
     @GetMapping("/login")
-    public String login(){return "index1";}
+    public String login(){return "login";}
 
 
 }
