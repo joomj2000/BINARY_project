@@ -12,16 +12,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Slf4j
 @Controller
-@RequestMapping("/table")
+//@RequestMapping("/table")
 @RequiredArgsConstructor
 public class TableController {
     private final TableService tableService;
 
     @GetMapping("/confirmation")
     public String showDesk(Model model){
-
+        TableInfo a1 = tableService.findTable("a1");
+        TableInfo a2 = tableService.findTable("a2");
+        TableInfo b1 = tableService.findTable("b1");
+        TableInfo b2 = tableService.findTable("b2");
+        TableInfo b3 = tableService.findTable("b3");
+        TableInfo b4 = tableService.findTable("b4");
+        TableInfo b5 = tableService.findTable("b5");
+        TableInfo b6 = tableService.findTable("b6");
+        model.addAttribute("a1", a1);
+        model.addAttribute("a2", a2);
+        model.addAttribute("b1", b1);
+        model.addAttribute("b2", b2);
+        model.addAttribute("b3", b3);
+        model.addAttribute("b4", b4);
+        model.addAttribute("b5", b5);
+        model.addAttribute("b6", b6);
 
         return "confirmation";
     }

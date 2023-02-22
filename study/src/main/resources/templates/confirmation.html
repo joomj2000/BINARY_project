@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <style>
     button.btn1{
@@ -183,14 +183,14 @@
                     <img class="w-100" src="img/white.png" alt="Image">
 
                      <!--좌석 -->
-                    <button class="btn1" type="button"><img src="img/green2.png"><h7 style="letter-spacing: 5px; color:white">주민지</button>
-                    <button class="btn2" type="button"><h5 style="letter-spacing: 5px; color:white">A-2</button>
-                    <button class="btn3" type="button"><h5 style="letter-spacing: 5px; color:white">B-1</button>
-                    <button class="btn4" type="button"><h5 style="letter-spacing: 5px; color:white">B-2</button>
-                    <button class="btn5" type="button"><img src="img/red.png" ><h7 style="letter-spacing: 5px; color:white">김해리</button>
-                    <button class="btn6" type="button"><h5 style="letter-spacing: 5px; color:white">B-4</button>
-                    <button class="btn7" type="button"><img src="img/yellow.png"><h7 style="letter-spacing: 5px; color:white">김채원</button>
-                    <button class="btn8" type="button"><h5 style="letter-spacing: 5px; color:white">B-6</button>
+                    <button class="btn1" type="button"><img src="img/green2.png"><h7 th:text="${a1?.tableUser}" style="letter-spacing: 5px; color:white">주민지</button>
+                    <button class="btn2" type="button"><h5 th:text="${a2?.tableUser}" style="letter-spacing: 5px; color:white">A-2</button>
+                    <button class="btn3" type="button"><h5 th:text="${b1?.tableUser}" style="letter-spacing: 5px; color:white">B-1</button>
+                    <button class="btn4" type="button"><h5 th:text="${b2?.tableUser}" style="letter-spacing: 5px; color:white">B-2</button>
+                    <button class="btn5" type="button"><img src="img/red.png" ><h7 th:text="${b3?.tableUser}" style="letter-spacing: 5px; color:white">김해리</button>
+                    <button class="btn6" type="button"><h5 th:text="${b4?.tableUser}" style="letter-spacing: 5px; color:white">B-4</button>
+                    <button class="btn7" type="button"><img src="img/yellow.png"><h7 th:text="${b5?.tableUser}" style="letter-spacing: 5px; color:white">김채원</button>
+                    <button class="btn8" type="button"><h5 th:text="${b6?.tableUser}" style="letter-spacing: 5px; color:white">B-6</button>
                     <button class="room" type="button"><img src="img/green2.png"><h5 style="letter-spacing: 5px; color:white">회의중</button>
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
                         <div class="p-3" style="max-width: 900px;">

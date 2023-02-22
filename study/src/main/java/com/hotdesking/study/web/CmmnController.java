@@ -17,8 +17,8 @@ public class CmmnController {
         return "join";
     }
 
-    @GetMapping("/confirmation")
-    public String confirmation() {return "confirmation";}
+//    @GetMapping("/confirmation")
+//    public String confirmation() {return "confirmation";}
 
     @GetMapping("/find")
     public String find() {return "find";}
