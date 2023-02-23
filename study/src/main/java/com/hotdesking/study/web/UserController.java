@@ -47,6 +47,12 @@ public class UserController {
         return "Fail";
     }
 
+    @GetMapping("/user/logout")
+    public String logout(){
+        userService.logout(tableId);
+        return "redirect:/home";
+    }
+
 //    @GetMapping("/find")
 //    public void findGET(HttpSession session, Model model) throws Exception{
 //        // 세션 객체 안에 있는 ID정보 저장

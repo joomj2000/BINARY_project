@@ -2,7 +2,7 @@
 <!--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> &lt;!&ndash; jstl로 정적 리소스 경로 설정 &ndash;&gt;-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -94,21 +94,46 @@
                     </script>
                     <form name = "Desk" id = "desk" action="/user/choose" method="post" >
 
-                        <button id="btn1" class="btn" value="a1" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">A-1</h5></button>
+                        <button id="btn1" class="btn" value="a1" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${a1?.tableUser ?:'a1'}" style="letter-spacing: 5px; color:white">
+<!--                            <h5 style="letter-spacing: 5px; color:white">A-1</h5>-->
+                        </button>
 
-                        <button id="btn2" class="btn" value="a2" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">A-2</h5></button>
+                        <button id="btn2" class="btn" value="a2" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${a2?.tableUser ?:'a2'}" style="letter-spacing: 5px; color:white">
+<!--                                <h5 style="letter-spacing: 5px; color:white">A-2</h5>-->
+                        </button>
 
-                        <button id="btn3" class="btn" value="b1" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-1</h5></button>
+                        <button id="btn3" class="btn" value="b1" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b1?.tableUser ?:'b1'}" style="letter-spacing: 5px; color:white">
+<!--                                <h5 style="letter-spacing: 5px; color:white">B-1</h5>-->
+                        </button>
 
-                        <button id="btn4" class="btn" value="b2" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-2</h5></button>
+                        <button id="btn4" class="btn" value="b2" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b2?.tableUser} ?:'b2'" style="letter-spacing: 5px; color:white">
+                                <h5 style="letter-spacing: 5px; color:white">B-2</h5>
+                        </button>
 
-                        <button id="btn5" class="btn" value="b3" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-3</h5></button>
+                        <button id="btn5" class="btn" value="b3" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b3?.tableUser ?:'b3'}" style="letter-spacing: 5px; color:white">
+<!--                            <h5 style="letter-spacing: 5px; color:white">B-3</h5>-->
+                        </button>
 
-                        <button id="btn6" class="btn" value="b4" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-4</h5></button>
+                        <button id="btn6" class="btn" value="b4" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b4?.tableUser ?:'b4'}" style="letter-spacing: 5px; color:white">
+<!--                                <h5 style="letter-spacing: 5px; color:white">B-4</h5>-->
+                        </button>
 
-                        <button id="btn7" class="btn" value="b5" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-5</h5></button>
+                        <button id="btn7" class="btn" value="b5" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b5?.tableUser} ?:'b5'" style="letter-spacing: 5px; color:white">
+<!--                                <h5 style="letter-spacing: 5px; color:white">B-5</h5>-->
+                        </button>
 
-                        <button id="btn8" class="btn" value="b6" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">B-6</h5></button>
+                        <button id="btn8" class="btn" value="b6" type="button" onclick="choose(this.value)">
+                            <h5 th:text="${b6?.tableUser ?:'b6'}" style="letter-spacing: 5px; color:white">
+
+<!--                            <h5 style="letter-spacing: 5px; color:white">B-6</h5>-->
+                        </button>
 
                         <button id="room" class="btn" value="room" type="button" onclick="choose(this.value)"><h5 style="letter-spacing: 5px; color:white">meeting room</h5></button>
 
@@ -121,6 +146,14 @@
                            
 <!--로그인-->
                             <a href="login" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Start</a>
+                        </div>
+                    </div>
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h6 class="text-black text-uppercase animated bounceInDown"style="letter-spacing: 5px;">Press button to finish</h6>
+
+                            <!--로그아웃-->
+                            <a href="/user/logout" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Finish</a>
                         </div>
                     </div>
                 </div>

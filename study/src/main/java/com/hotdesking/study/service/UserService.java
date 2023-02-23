@@ -55,6 +55,19 @@ public class UserService {
         return "Failed";
     }
 
+    public void logout(String tableId){
+        Optional<TableInfo> table = tableRepository.findByTableId(tableId);
+        Optional<User> user=userRepository.findByUserName(table.get().getTableUser());
+        log.info("userId = {}, tableId={}", user.get().getUserId(),table.get().getTableId());
+        // tableInfo 테이블 초기화
+        table.get().setUsing(false);
+        table.get().setTableUser(null);
+        tableRepository.save(table.get());
+        // user 테이블 초기화
+        user.get().setUserTable(null);
+        userRepository.save(user.get());
+    }
+
     public User findUser(UserFind request){
         Optional<User> user = userRepository.findByUserName(request.getUserName());
         return user.get();

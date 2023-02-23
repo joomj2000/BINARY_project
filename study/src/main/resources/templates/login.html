@@ -54,20 +54,20 @@
         <div class="container pt-5">
             
                 <div class="col-12">
-                    <form class="mx-auto" style="max-width: 600px;">
+                    <form method="post" action="/user/login" class="mx-auto" style="max-width: 600px;">
                         <div class="input-group">
                             <h2 style="color:#F14D5D;">ID&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </span></h2>
-                            <input type="text" class="form-control border-blue p-3" placeholder="아이디을 입력하세요">
+                            <input id="userId" name="userId" type="text" class="form-control border-blue p-3" placeholder="아이디을 입력하세요">
                             
                         </div>
 
                         <div class="input-group">
                         	<h2><span class="text-secondary">PASSWORD &nbsp</span></h2>
-                            <input type="text" class="form-control border-blue p-3" placeholder="비밀번호를 입력하세요">
+                            <input id="password" name="password" type="password" class="form-control border-blue p-3" placeholder="비밀번호를 입력하세요">
                             
                         </div>
                         <h1>&nbsp</h1>
-                        <center><a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">log in</a></center>
+                        <center><input type="submit" value="log in" href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight"></center>
 
 
                         
@@ -82,7 +82,7 @@
     <h1>&nbsp</h1>
     <h1>&nbsp</h1>
     <center><h5><span class="text-primary">aren't you a member?</span></h5></center>
-    <center><a href="join" class="btn btn-primary py-md-3 px-md-5 animated slideInLeft">sign in</a></center>
+    <center><input type="button" onclick="location.href='/join';" value="sign in" class="btn btn-primary py-md-3 px-md-5 animated slideInLeft"></center>
 
 
 </body>
