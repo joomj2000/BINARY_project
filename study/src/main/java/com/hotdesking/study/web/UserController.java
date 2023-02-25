@@ -19,7 +19,7 @@ public class UserController {
     private String tableId;
     private User user;
     @PostMapping("/user/signup")
-    public String joinUs(UserRequest request){
+    public String joinUser(UserRequest request){
         log.info("userId={}, password={}, userName={}",
                 request.getUserId(), request.getPassword(), request.getUserName());
         //userService.joinUser(request);
