@@ -3,6 +3,16 @@ server:
   port : 8080
 
 spring:
+#  mvc:
+#    # 스프링 부트에서는 resources/static 경로로 정족 리소스 파일을 넣어야 한다.
+#    static-path-pattern : /static/**
+#  web:
+#    resources:
+#      # 여기서 classpath는 resources 폴더에 해당한다.
+#      static-locations : classpath:/static/
+#      # 매핑 허용 여부
+#      add-mappings : true
+
   datasource:
     #type: org.apache.tomcat.jdbc.pool.DataSource
     url: jdbc:mysql://localhost:3306/user_db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true
@@ -20,6 +30,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+        globally_quoted_identifiers : true
 
   # createDatabaseIfNotExsit: 데이터베이스가 존재하지 않으면 자동으로 생성
   # useUnicode : 유니코드 사용 여부 설정
